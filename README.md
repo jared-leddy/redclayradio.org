@@ -2,6 +2,13 @@
 
 The official website for Red Clay Radio is open for others to contribute on. What started out as a joke is now becoming a real website.
 
+## Mockups
+
+We used AI to generate an image for what our mockups could look like. The original idea was to get a general idea and rebuild it in Figma Make, but the initial attempt was too good to let go of. So, the image below is being used as our mockup. 
+
+<img width="1536" height="1024" alt="RedClayRadio com-mockup" src="https://github.com/user-attachments/assets/19083691-5076-4ba7-bade-8aa954050b13" />
+
+
 ## Brand Tailwind Color Classes
 
 ### Backgrounds
