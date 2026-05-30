@@ -1,10 +1,7 @@
-// NPM Modules
-import type { ReactNode } from 'react';
-
 // Custom Modules
-import StageIcon from '../atoms/StageIcon';
-import StageData from '@/utils/interfaces/StageData.interface';
 import { PlayerType } from '@/utils/enums/PlayerType.enum';
+import type StageData from '@/utils/interfaces/StageData.interface';
+import StageIcon from '../atoms/StageIcon';
 
 type StageCardProps = {
     stage: StageData;
@@ -40,6 +37,7 @@ export default function StageCard({ stage }: StageCardProps) {
             {stage.playerType === PlayerType.Spotify && (
                 <div className='music-player mt-4 border-2 border-green-500 rounded-lg'>
                     <iframe
+                        title='spotify player'
                         allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
                         className='rounded-xl'
                         data-testid='embed-iframe'
