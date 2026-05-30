@@ -1,6 +1,7 @@
 // Custom Modules
 import { StageType } from '@/utils/enums/StageType.enum';
 import StageCard from '../molecules/StageCard';
+import { PlayerType } from '@/utils/enums/PlayerType.enum';
 
 export default function StageSection() {
     return (
@@ -10,37 +11,22 @@ export default function StageSection() {
                     artist: 'Deftones',
                     genres: ['Alternative Metal', 'Nu Metal', 'Shoegaze'],
                     location: 'Sacramento, California, USA',
-                    stage: 'main' as StageType,
+                    playerType: 'spotify' as PlayerType,
+                    playerURL: 'https://open.spotify.com/embed/artist/6Ghvu1VvMGScGpOUJBAHNH?theme=0',
+                    stageType: 'main' as StageType,
                 }}
-            >
-                <iframe
-                    data-testid='embed-iframe'
-                    className='rounded-xl'
-                    src='https://open.spotify.com/embed/artist/6Ghvu1VvMGScGpOUJBAHNH?theme=0'
-                    width='100%'
-                    height='352'
-                    allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-                    loading='lazy'
-                ></iframe>
-            </StageCard>
+            />
             <StageCard
                 stage={{
                     artist: 'Code Orange',
                     genres: ['Hardcore', 'Metalcore', 'Industrial'],
                     location: 'Pittsburgh, Pennsylvania, USA',
-                    stage: 'side' as StageType,
+                    playerType: 'youtube' as PlayerType,
+                    playerURL:
+                        'https://www.youtube.com/embed/videoseries?si=sg9OnYy4ajCStjuH&amp;list=PLFX2XrrafiGz7wABBQmPV0MuUJ3AocTLW',
+                    stageType: 'side' as StageType,
                 }}
-            >
-                <iframe
-                    data-testid='embed-iframe'
-                    className='rounded-xl'
-                    src='https://open.spotify.com/embed/artist/6qtECqesbU29iftyeWmldK?theme=0'
-                    width='100%'
-                    height='352'
-                    allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-                    loading='lazy'
-                ></iframe>
-            </StageCard>
+            />
         </section>
     );
 }
