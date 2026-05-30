@@ -16,7 +16,7 @@ export default function StageSection() {
                 <iframe
                     data-testid='embed-iframe'
                     className='rounded-xl'
-                    src='https://open.spotify.com/embed/artist/6Ghvu1VvMGScGpOUJBAHNH?utm_source=generator'
+                    src='https://open.spotify.com/embed/artist/6Ghvu1VvMGScGpOUJBAHNH?theme=0'
                     width='100%'
                     height='352'
                     allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
@@ -34,7 +34,7 @@ export default function StageSection() {
                 <iframe
                     data-testid='embed-iframe'
                     className='rounded-xl'
-                    src='https://open.spotify.com/embed/artist/6Ghvu1VvMGScGpOUJBAHNH?utm_source=generator'
+                    src='https://open.spotify.com/embed/artist/6qtECqesbU29iftyeWmldK?theme=0'
                     width='100%'
                     height='352'
                     allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
