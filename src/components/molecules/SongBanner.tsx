@@ -1,7 +1,7 @@
 export default function SongBanner() {
     return (
-        <div>
+        <section>
             <h1>Song Banner</h1>
-        </div>
+        </section>
     );
 }

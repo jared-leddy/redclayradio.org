@@ -1,7 +1,7 @@
 export default function OnDeckBanner() {
     return (
-        <div>
+        <section>
             <h1>On Deck Banner</h1>
-        </div>
+        </section>
     );
 }
