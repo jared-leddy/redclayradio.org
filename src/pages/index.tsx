@@ -1,31 +1,28 @@
-import OnDeckBanner from '../components/molecules/OnDeckBanner';
-import SongBanner from '../components/molecules/SongBanner';
-import StageCard from '../components/molecules/StageCard';
-import Footer from '../components/organisms/Footer';
-import Header from '../components/organisms/Header';
+// Custom Modules
+import mockup from './../assets/img/RedClayRadio.com-mockup.png';
 
 export default function Home() {
     return (
         <>
-            <div className='w-full bg-red-900 text-stone-100 font-bold text-lg text-center uppercase py-2'>
-                Notice: This station is not on the airwaves yet.
+            <div className='w-8/10 mx-auto pt-40'>
+                <h1 className='text-5xl text-red-900 font-bold text-center mb-4 uppercase'>
+                    Red Clay Radio is Coming Soon
+                </h1>
+                <p className='w-8/10 mx-auto p-6 text-2xl'>
+                    We are currently in development and will be launching soon. In the meantime, the mockup of what we
+                    are building is below. If you would like to see our progress, you can click on the link below.
+                </p>
+                <a
+                    href='/future'
+                    target='_blank'
+                    className='border border-red-900 text-red-900 px-6 py-3 uppercase font-bold mx-auto block w-2xs text-center hover:bg-white'
+                >
+                    View Progress
+                </a>
             </div>
-            <Header />
-            <section>
-                <h1>Date Section</h1>
-            </section>
-            <section>
-                <h1>Stages Section</h1>
-                <StageCard />
-                <StageCard />
-            </section>
-            <section>
-                <SongBanner />
-            </section>
-            <section>
-                <OnDeckBanner />
-            </section>
-            <Footer />
+            <div className='w-8/10 mx-auto pt-20'>
+                <img src={mockup.src} />
+            </div>
         </>
     );
 }
