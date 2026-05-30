@@ -1,6 +1,6 @@
+import StageSection from '@/components/organisms/StageSection';
 import OnDeckBanner from '../components/molecules/OnDeckBanner';
 import SongBanner from '../components/molecules/SongBanner';
-import StageCard from '../components/molecules/StageCard';
 import DateSection from '../components/organisms/DateSection';
 import Footer from '../components/organisms/Footer';
 import Header from '../components/organisms/Header';
@@ -13,12 +13,9 @@ export default function FutureHome() {
             </div>
             <Header />
             <DateSection />
-            <section>
-                <SongBanner />
-            </section>
-            <section>
-                <OnDeckBanner />
-            </section>
+            <StageSection />
+            <SongBanner />
+            <OnDeckBanner />
             <Footer />
         </>
     );
