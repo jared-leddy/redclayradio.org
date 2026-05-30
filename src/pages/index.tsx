@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <>
             <div className='w-8/10 mx-auto pt-40'>
-                <h1 className='text-5xl text-red-900 font-bold text-center mb-4 uppercase'>
+                <h1 className='text-8xl text-red-900 font-black text-center mb-4 uppercase font-display'>
                     Red Clay Radio is Coming Soon
                 </h1>
                 <p className='w-8/10 mx-auto p-6 text-2xl'>
