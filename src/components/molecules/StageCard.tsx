@@ -4,13 +4,13 @@ import type { ReactNode } from 'react';
 // Custom Modules
 import StageIcon from '../atoms/StageIcon';
 import StageData from '@/utils/interfaces/StageData.interface';
+import { PlayerType } from '@/utils/enums/PlayerType.enum';
 
 type StageCardProps = {
-    children?: ReactNode;
     stage: StageData;
 };
 
-export default function StageCard({ children, stage }: StageCardProps) {
+export default function StageCard({ stage }: StageCardProps) {
     return (
         <article className='flex flex-col border border-red-900 bg-zinc-950 p-6'>
             <div className='flex items-start gap-3'>
@@ -18,7 +18,9 @@ export default function StageCard({ children, stage }: StageCardProps) {
                     <StageIcon />
                 </div>
                 <div className='flex-1'>
-                    <p className='font-heading text-lg font-bold uppercase tracking-ui text-red-800'>{stage.stage}</p>
+                    <p className='font-heading text-lg font-bold uppercase tracking-ui text-red-800'>
+                        {stage.stageType}
+                    </p>
                     <h3 className='font-display text-7xl font-black uppercase leading-none tracking-display text-orange-100'>
                         {stage.artist}
                     </h3>
@@ -35,7 +37,31 @@ export default function StageCard({ children, stage }: StageCardProps) {
                     <p className='mt-3 font-heading text-md uppercase tracking-ui text-yellow-500'>{stage.location}</p>
                 </div>
             </div>
-            {children ? <div className='mt-4'>{children}</div> : null}
+            {stage.playerType === PlayerType.Spotify && (
+                <div className='music-player mt-4 border-2 border-green-500 rounded-lg'>
+                    <iframe
+                        allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
+                        className='rounded-xl'
+                        data-testid='embed-iframe'
+                        height='352'
+                        loading='lazy'
+                        src={stage.playerURL}
+                        width='100%'
+                    />
+                </div>
+            )}
+            {stage.playerType === PlayerType.YouTube && (
+                <div className='music-player mt-4 border-2 border-red-500 rounded-lg'>
+                    <iframe
+                        className='rounded-xl'
+                        width='560'
+                        height='315'
+                        src={stage.playerURL}
+                        title='YouTube video player'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                    ></iframe>
+                </div>
+            )}
         </article>
     );
 }
