@@ -1,6 +1,7 @@
 import OnDeckBanner from '../components/molecules/OnDeckBanner';
 import SongBanner from '../components/molecules/SongBanner';
 import StageCard from '../components/molecules/StageCard';
+import DateSection from '../components/organisms/DateSection';
 import Footer from '../components/organisms/Footer';
 import Header from '../components/organisms/Header';
 
@@ -11,14 +12,7 @@ export default function FutureHome() {
                 Notice: This station is not on the airwaves yet.
             </div>
             <Header />
-            <section>
-                <h1>Date Section</h1>
-            </section>
-            <section>
-                <h1>Stages Section</h1>
-                <StageCard />
-                <StageCard />
-            </section>
+            <DateSection />
             <section>
                 <SongBanner />
             </section>
