@@ -1,7 +1,7 @@
 // Custom Modules
-import { StageType } from '@/utils/enums/StageType.enum';
+import type { PlayerType } from '@/utils/enums/PlayerType.enum';
+import type { StageType } from '@/utils/enums/StageType.enum';
 import StageCard from '../molecules/StageCard';
-import { PlayerType } from '@/utils/enums/PlayerType.enum';
 
 export default function StageSection() {
     return (
