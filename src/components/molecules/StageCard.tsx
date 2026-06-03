@@ -1,5 +1,4 @@
 // Custom Modules
-import { PlayerType } from '@/utils/enums/PlayerType.enum';
 import type StageData from '@/utils/interfaces/StageData.interface';
 import StageIcon from '../atoms/StageIcon';
 
@@ -34,7 +33,7 @@ export default function StageCard({ stage }: StageCardProps) {
                     <p className='mt-3 font-heading text-md uppercase tracking-ui text-yellow-500'>{stage.location}</p>
                 </div>
             </div>
-            {stage.playerType === PlayerType.Spotify && (
+            {stage.playerURL && (
                 <div className='music-player mt-4 border-2 border-green-500 rounded-lg'>
                     <iframe
                         title='spotify player'
@@ -46,18 +45,6 @@ export default function StageCard({ stage }: StageCardProps) {
                         src={stage.playerURL}
                         width='100%'
                     />
-                </div>
-            )}
-            {stage.playerType === PlayerType.YouTube && (
-                <div className='music-player mt-4 border-2 border-red-500 rounded-lg'>
-                    <iframe
-                        className='rounded-xl'
-                        width='560'
-                        height='315'
-                        src={stage.playerURL}
-                        title='YouTube video player'
-                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                    ></iframe>
                 </div>
             )}
         </article>
