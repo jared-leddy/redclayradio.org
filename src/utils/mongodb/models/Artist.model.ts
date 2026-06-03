@@ -3,7 +3,6 @@ import { type Model, model, models, Schema } from 'mongoose';
 
 // Custom Modules
 import { ArtistStatus } from '@/utils/enums/ArtistStatus.enum';
-import { PlayerType } from '@/utils/enums/PlayerType.enum';
 import type Artist from '@/utils/interfaces/Artist.interface';
 
 /**
@@ -16,8 +15,8 @@ const ArtistSchema = new Schema<Artist>({
     isActive: { type: Boolean, default: true },
     location: { type: String, required: true },
     name: { type: String, required: true },
-    playerType: { type: String, enum: Object.values(PlayerType), required: true },
     playerURL: { type: String, required: true },
+    spotifyID: { type: String },
     status: { type: String, enum: Object.values(ArtistStatus), default: ArtistStatus.Pending },
 });
 
