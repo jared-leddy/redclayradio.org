@@ -26,7 +26,10 @@ export default function OnDeckBanner({ items }: OnDeckBannerProps) {
                 <ChevronRightIcon />
                 <ul className='flex max-h-14 flex-wrap items-center overflow-hidden'>
                     {currentItems.map((item, index) => (
-                        <li key={`${item.artist}-${index}`} className='flex p-2'>
+                        <li
+                            key={`${item.artist}-${index}`}
+                            className='flex p-2'
+                        >
                             <div className='px-2'>
                                 <p className='font-bold text-sm'>{item.artist}</p>
                                 <p className='text-xs'>{item.genre}</p>
