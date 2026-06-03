@@ -1,12 +1,14 @@
 // Custom Modules
-import type StageData from '@/utils/interfaces/StageData.interface';
+import type { StageType } from '@/utils/enums/StageType.enum';
+import type Artist from '@/utils/interfaces/Artist.interface';
 import StageIcon from '../atoms/StageIcon';
 
 type StageCardProps = {
-    stage: StageData;
+    artist: Artist;
+    stageType: StageType;
 };
 
-export default function StageCard({ stage }: StageCardProps) {
+export default function StageCard({ artist, stageType }: StageCardProps) {
     return (
         <article className='flex flex-col border border-red-900 bg-zinc-950 p-6'>
             <div className='flex items-start gap-3'>
@@ -14,14 +16,12 @@ export default function StageCard({ stage }: StageCardProps) {
                     <StageIcon />
                 </div>
                 <div className='flex-1'>
-                    <p className='font-heading text-lg font-bold uppercase tracking-ui text-red-800'>
-                        {stage.stageType}
-                    </p>
+                    <p className='font-heading text-lg font-bold uppercase tracking-ui text-red-800'>{stageType}</p>
                     <h3 className='font-display text-7xl font-black uppercase leading-none tracking-display text-orange-100'>
-                        {stage.artist}
+                        {artist.name}
                     </h3>
                     <ul className='mt-4 flex flex-wrap gap-2'>
-                        {stage.genres.map((genre) => (
+                        {artist.genres.map((genre) => (
                             <li
                                 key={genre}
                                 className='border border-zinc-700 px-3 py-1 font-ui text-xs uppercase tracking-ui text-stone-100'
@@ -30,10 +30,14 @@ export default function StageCard({ stage }: StageCardProps) {
                             </li>
                         ))}
                     </ul>
-                    <p className='mt-3 font-heading text-md uppercase tracking-ui text-yellow-500'>{stage.location}</p>
+                    {artist.location && (
+                        <p className='mt-3 font-heading text-md uppercase tracking-ui text-yellow-500'>
+                            {artist.location}
+                        </p>
+                    )}
                 </div>
             </div>
-            {stage.playerURL && (
+            {artist.playerURL && (
                 <div className='music-player mt-4 border-2 border-green-500 rounded-lg'>
                     <iframe
                         title='spotify player'
@@ -42,7 +46,7 @@ export default function StageCard({ stage }: StageCardProps) {
                         data-testid='embed-iframe'
                         height='352'
                         loading='lazy'
-                        src={stage.playerURL}
+                        src={artist.playerURL}
                         width='100%'
                     />
                 </div>
