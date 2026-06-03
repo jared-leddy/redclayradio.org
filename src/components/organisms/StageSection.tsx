@@ -1,5 +1,4 @@
 // Custom Modules
-import type { PlayerType } from '@/utils/enums/PlayerType.enum';
 import type { StageType } from '@/utils/enums/StageType.enum';
 import StageCard from '../molecules/StageCard';
 
@@ -10,20 +9,17 @@ export default function StageSection() {
                 stage={{
                     artist: 'Deftones',
                     genres: ['Alternative Metal', 'Nu Metal', 'Shoegaze'],
-                    location: 'Sacramento, California, USA',
-                    playerType: 'spotify' as PlayerType,
+                    location: 'Sacramento, CA, USA',
                     playerURL: 'https://open.spotify.com/embed/artist/6Ghvu1VvMGScGpOUJBAHNH?theme=0',
                     stageType: 'main' as StageType,
                 }}
             />
             <StageCard
                 stage={{
-                    artist: 'Code Orange',
+                    artist: 'Thursday',
                     genres: ['Hardcore', 'Metalcore', 'Industrial'],
-                    location: 'Pittsburgh, Pennsylvania, USA',
-                    playerType: 'youtube' as PlayerType,
-                    playerURL:
-                        'https://www.youtube.com/embed/videoseries?si=sg9OnYy4ajCStjuH&amp;list=PLFX2XrrafiGz7wABBQmPV0MuUJ3AocTLW',
+                    location: 'New Brunswick, NJ, USA',
+                    playerURL: 'https://open.spotify.com/artist/61awhbNK16ku1uQyXRsQj5?theme=0',
                     stageType: 'side' as StageType,
                 }}
             />
