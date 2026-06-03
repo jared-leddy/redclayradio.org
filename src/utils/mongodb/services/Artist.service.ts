@@ -3,6 +3,7 @@ import type { HydratedDocument } from 'mongoose';
 
 // Custom Modules
 import type Artist from '@/utils/interfaces/Artist.interface';
+import type ArtistCreate from '@/utils/interfaces/ArtistCreate.interface';
 import { connectToDatabase } from '@/utils/mongodb/connection';
 import ArtistModel from '@/utils/mongodb/models/Artist.model';
 
@@ -17,7 +18,7 @@ class ArtistService {
     /**
      * Persist a new artist and return the created document.
      */
-    async create(data: Artist): Promise<HydratedDocument<Artist>> {
+    async create(data: ArtistCreate): Promise<HydratedDocument<Artist>> {
         await connectToDatabase();
 
         return ArtistModel.create(data);
