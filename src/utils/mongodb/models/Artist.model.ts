@@ -13,7 +13,7 @@ import type Artist from '@/utils/interfaces/Artist.interface';
 const ArtistSchema = new Schema<Artist>({
     genres: { type: [String], required: true },
     isActive: { type: Boolean, default: true },
-    location: { type: String, required: true },
+    location: { type: String },
     name: { type: String, required: true },
     playerURL: { type: String, required: true },
     spotifyID: { type: String },
