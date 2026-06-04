@@ -1,0 +1,39 @@
+{
+  "name": "@redclayradio/utils",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc -b --watch",
+    "build": "tsc -b",
+    "lint": "eslint \"src/**/*.ts\""
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist/**"
+  ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./*": {
+      "import": "./dist/*.js",
+      "require": "./dist/*.js"
+    }
+  },
+  "devDependencies": {
+    "@redclayradio/eslint-config": "*",
+    "@redclayradio/typescript-config": "*",
+    "@types/node": "^24.5.2",
+    "typescript": "^5.9.2"
+  }
+}
