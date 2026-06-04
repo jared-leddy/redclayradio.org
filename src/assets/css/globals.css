@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&family=Barlow+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&family=Barlow+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
 
 @theme inline {
     /* ── FONTS ──────────────────────────────────────────── */
     /* Hero headings — band names, "TWO STAGES. ONE SONG." */
-    --font-display: 'Bebas Neue', sans-serif;
+    --font-display: "Bebas Neue", sans-serif;
     /* Logo, section headings, buttons */
-    --font-heading: 'Oswald', sans-serif;
+    --font-heading: "Oswald", sans-serif;
     /* Header labels, subheadings, genre pills, On Air badge */
-    --font-ui: 'Barlow Condensed', sans-serif;
+    --font-ui: "Barlow Condensed", sans-serif;
     /* Metadata, dates, ticker, monospace labels */
-    --font-mono: 'IBM Plex Mono', monospace;
+    --font-mono: "IBM Plex Mono", monospace;
     /* ── LETTER SPACING ─────────────────────────────────── */
     --tracking-display: -0.02em;
     --tracking-heading: 0.04em;
