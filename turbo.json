@@ -1,0 +1,38 @@
+{
+  "$schema": "https://v2-9-14.turborepo.dev/schema.json",
+  "globalDependencies": ["**/.env.*"],
+  "globalEnv": [
+    "API_URL",
+    "DB_HOST",
+    "DB_NAME",
+    "DB_PASSWORD",
+    "DB_PORT",
+    "DB_SSL",
+    "DB_USERNAME",
+    "NODE_ENV",
+    "PORT",
+    "SPOTIFY_CLIENT_ID",
+    "SPOTIFY_CLIENT_SECRET"
+  ],
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "env": [],
+      "inputs": ["$TURBO_DEFAULT$", ".env.development"],
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "env": [],
+      "inputs": ["$TURBO_DEFAULT$", ".env.production"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {},
+    "test": {},
+    "test:e2e": {}
+  }
+}
