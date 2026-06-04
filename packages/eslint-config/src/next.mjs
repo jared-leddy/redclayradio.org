@@ -7,7 +7,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 // Custom Modules
-import { config as baseConfig } from './base.mjs';
+import { baseConfig } from './base.mjs';
 
 /**
  * A custom ESLint configuration for libraries that use Next.js with React.
