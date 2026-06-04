@@ -12,7 +12,7 @@ import { Response } from 'express';
 import { QueryFailedError } from 'typeorm';
 
 // Custom Modules
-import LoggerService from 'src/logger/logger.service';
+import LoggerService from '@/logger/logger.service';
 
 /**
  * Postgres SQLSTATE codes mapped to their HTTP-meaningful translations.
