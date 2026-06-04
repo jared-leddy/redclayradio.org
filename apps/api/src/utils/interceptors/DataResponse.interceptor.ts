@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 // Custom Modules
-import LoggerService from 'src/logger/logger.service';
+import LoggerService from '@/logger/logger.service';
 
 /**
  * Global response interceptor with two responsibilities:
