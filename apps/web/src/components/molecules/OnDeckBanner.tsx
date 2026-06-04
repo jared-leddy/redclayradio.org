@@ -5,9 +5,9 @@ import { useState } from 'react';
 import type { OnDeckListItem } from '@redclayradio/utils';
 
 // Custom Modules
-import ChevronRightIcon from '../atoms/ChevronRightIcon';
-import CircleXMarkIcon from '../atoms/CircleXMarkIcon';
-import SignalIcon from '../atoms/SignalIcon';
+import ChevronRight from '../atoms/icons/ChevronRight';
+import CircleXMark from '../atoms/icons/CircleXMark';
+import Signal from '../atoms/icons/Signal';
 
 type OnDeckBannerProps = {
   items: OnDeckListItem[];
@@ -23,9 +23,9 @@ export default function OnDeckBanner({ items }: OnDeckBannerProps) {
   return (
     <section className='w-full bg-zinc-950 overflow-x-hidden'>
       <div className='flex items-center'>
-        <SignalIcon />
+        <Signal />
         <h2 className='text-red-700 uppercase'>On Deck</h2>
-        <ChevronRightIcon />
+        <ChevronRight />
         <ul className='flex max-h-14 flex-wrap items-center overflow-hidden'>
           {currentItems.map((item, index) => (
             <li key={`${item.artist}-${index}`} className='flex p-2'>
@@ -39,7 +39,7 @@ export default function OnDeckBanner({ items }: OnDeckBannerProps) {
                 onClick={() => handleRemove(index)}
                 type='button'
               >
-                <CircleXMarkIcon />
+                <CircleXMark />
               </button>
             </li>
           ))}
