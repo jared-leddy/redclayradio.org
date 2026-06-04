@@ -1,7 +1,7 @@
 // Custom Modules
 import tower from '@/assets/img/radio-tower.png';
-import SpotifyIcon from '../atoms/SpotifyIcon';
-import YouTubeIcon from '../atoms/YouTubeIcon';
+import Spotify from '../atoms/icons/Spotify';
+import YouTube from '../atoms/icons/YouTube';
 
 export default function SongBanner() {
   return (
@@ -28,7 +28,7 @@ export default function SongBanner() {
               target='_blank'
               rel='noreferrer'
             >
-              <SpotifyIcon />
+              <Spotify />
               Play on Spotify
             </a>
             <a
@@ -37,7 +37,7 @@ export default function SongBanner() {
               target='_blank'
               rel='noreferrer'
             >
-              <YouTubeIcon />
+              <YouTube />
               Watch on YouTube
             </a>
           </div>
