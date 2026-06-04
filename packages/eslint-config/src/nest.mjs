@@ -2,7 +2,7 @@
 import globals from 'globals';
 
 // Custom Modules
-import { config as baseConfig } from './base.mjs';
+import { baseConfig } from './base.mjs';
 
 /**
  * A custom ESLint configuration for Nest.js.
