@@ -1,5 +1,5 @@
 // Shared Modules
-import { config as baseConfig } from '@redclayradio/eslint-config/base';
+import { baseConfig } from '@redclayradio/eslint-config/base';
 
 export default [
   {
