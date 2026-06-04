@@ -1,0 +1,33 @@
+{
+  "name": "@redclayradio/web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev --turbopack",
+    "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "start": "next start",
+    "start:dev": "next dev"
+  },
+  "dependencies": {
+    "@redclayradio/utils": "*",
+    "axios": "^1.12.2",
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@redclayradio/eslint-config": "*",
+    "@redclayradio/prettier-config": "*",
+    "@redclayradio/typescript-config": "*",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9.36.0",
+    "tailwindcss": "^4",
+    "typescript": "^5.9.2"
+  }
+}
