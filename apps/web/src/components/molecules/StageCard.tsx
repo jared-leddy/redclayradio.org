@@ -2,7 +2,7 @@
 import type { Artist, StageType } from '@redclayradio/utils';
 
 // Custom Modules
-import StageIcon from '../atoms/StageIcon';
+import Stage from '../atoms/icons/Stage';
 
 type StageCardProps = {
   artist: Artist;
@@ -14,7 +14,7 @@ export default function StageCard({ artist, stageType }: StageCardProps) {
     <article className='flex flex-col border border-red-900 bg-zinc-950 p-6'>
       <div className='flex items-start gap-3'>
         <div className='flex items-center justify-center border border-red-900 p-2'>
-          <StageIcon />
+          <Stage />
         </div>
         <div className='flex-1'>
           <p className='font-heading text-lg font-bold uppercase tracking-ui text-red-800'>{stageType}</p>
