@@ -34,4 +34,7 @@ npm-debug.log*
 
 # typescript
 *.tsbuildinfo
+cache-life.d.ts
 next-env.d.ts
+routes.d.ts
+validator.ts
