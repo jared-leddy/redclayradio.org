@@ -6,11 +6,13 @@ import {
   ConflictException,
   ExceptionFilter,
   HttpException,
-  InternalServerErrorException,
-  Logger
+  InternalServerErrorException
 } from '@nestjs/common';
 import { Response } from 'express';
 import { QueryFailedError } from 'typeorm';
+
+// Custom Modules
+import LoggerService from 'src/logger/logger.service';
 
 /**
  * Postgres SQLSTATE codes mapped to their HTTP-meaningful translations.
@@ -53,13 +55,20 @@ const POSTGRES_ERROR_TRANSLATIONS: Record<
 
 @Catch(QueryFailedError)
 export default class TypeORMExceptionFilter implements ExceptionFilter {
-  private readonly logger = new Logger('TypeORMExceptionFilter');
+  constructor(private readonly logger: LoggerService) {}
 
   catch(exception: QueryFailedError, host: ArgumentsHost): void {
     const driverError = exception.driverError as { code?: string; detail?: string } | undefined;
     const code = driverError?.code;
 
-    this.logger.error(`QueryFailedError [${code ?? 'unknown'}]: ${exception.message}`, driverError?.detail);
+    this.logger.error(
+      `QueryFailedError [${code ?? 'unknown'}]: ${exception.message}`,
+      exception.stack,
+      'TypeORMExceptionFilter',
+      {
+        detail: driverError?.detail
+      }
+    );
 
     const translation = code ? POSTGRES_ERROR_TRANSLATIONS[code] : undefined;
     const httpException = translation
