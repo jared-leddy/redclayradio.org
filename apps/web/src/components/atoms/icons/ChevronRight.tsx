@@ -1,4 +1,4 @@
-export default function ChevronRightIcon() {
+export default function ChevronRight() {
   return (
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640' className='w-10 h-10 p-1 fill-yellow-500 mr-2'>
       <title>Chevron Right</title>
