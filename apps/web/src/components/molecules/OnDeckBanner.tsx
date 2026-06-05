@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 // NPM Modules
-import type { OnDeckListItem } from '@redclayradio/utils';
+import type { OnDeckListItem } from '@redclayradio/utils/interfaces';
 
 // Custom Modules
 import ChevronRight from '../atoms/icons/ChevronRight';
