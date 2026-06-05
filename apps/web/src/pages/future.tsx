@@ -1,5 +1,5 @@
 // NPM Modules
-import type { OnDeckListItem } from '@redclayradio/utils';
+import type { OnDeckListItem } from '@redclayradio/utils/interfaces';
 
 // Custom Modules
 import StageSection from '@/components/organisms/StageSection';
