@@ -1,18 +1,23 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 package-lock.json
+# turbo
+.turbo
 
 # testing
-/coverage
+coverage
 
 # next.js
-/.next/
-/out/
+.next/
+out/
+
+# nest.js
+dist/
 
 # production
-/build
+build
 
 # misc
 .DS_Store
@@ -29,4 +34,7 @@ npm-debug.log*
 
 # typescript
 *.tsbuildinfo
+cache-life.d.ts
 next-env.d.ts
+routes.d.ts
+validator.ts

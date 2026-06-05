@@ -1,0 +1,13 @@
+{
+  "name": "@redclayradio/prettier-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "base.js",
+  "type": "module",
+  "exports": {
+    ".": "./base.js"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}

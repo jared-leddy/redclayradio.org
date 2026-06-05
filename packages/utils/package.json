@@ -1,0 +1,30 @@
+{
+  "name": "@redclayradio/utils",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc -b --watch",
+    "build": "tsc -b",
+    "lint": "eslint \"src/**/*.ts\""
+  },
+  "files": [
+    "./dist/**"
+  ],
+  "exports": {
+    "./enums": {
+      "types": "./dist/enums/index.d.ts",
+      "default": "./dist/enums/index.js"
+    },
+    "./interfaces": {
+      "types": "./dist/interfaces/index.d.ts",
+      "default": "./dist/interfaces/index.js"
+    }
+  },
+  "devDependencies": {
+    "@redclayradio/eslint-config": "*",
+    "@redclayradio/typescript-config": "*",
+    "@types/node": "^24.5.2",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@redclayradio/eslint-config",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./base": "./src/base.mjs",
+    "./next-js": "./src/next.mjs",
+    "./nest-js": "./src/nest.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@next/eslint-plugin-next": "^15.5.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-turbo": "^2.9.14",
+    "globals": "^16.3.0",
+    "typescript-eslint": "^8.44.0"
+  }
+}
