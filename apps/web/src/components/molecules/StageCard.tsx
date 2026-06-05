@@ -1,5 +1,6 @@
 // NPM Modules
-import type { Artist, StageType } from '@redclayradio/utils';
+import type { StageType } from '@redclayradio/utils/enums';
+import type { Artist } from '@redclayradio/utils/interfaces';
 
 // Custom Modules
 import Stage from '../atoms/icons/Stage';
