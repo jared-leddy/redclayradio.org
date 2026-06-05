@@ -6,7 +6,9 @@ declare namespace NodeJS {
     DB_NAME: string;
     DB_SSL: string;
     DB_USERNAME: string;
+    SPOTIFY_API_URL: string;
     SPOTIFY_CLIENT_ID: string;
     SPOTIFY_CLIENT_SECRET: string;
+    SPOTIFY_TOKEN_URL: string;
   }
 }
