@@ -8,10 +8,11 @@
     "build": "nest build",
     "dev": "NODE_ENV=development nest start --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
     "start": "NODE_ENV=production node dist/main.js",
     "start:dev": "NODE_ENV=development nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "start:prod:api": "NODE_ENV=production node dist/main.js",
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
