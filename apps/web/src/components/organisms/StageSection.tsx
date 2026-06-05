@@ -1,5 +1,5 @@
 // NPM Modules
-import { ArtistStatus, type StageType } from '@redclayradio/utils';
+import { ArtistStatus, type StageType } from '@redclayradio/utils/enums';
 
 // Custom Modules
 import StageCard from '../molecules/StageCard';
