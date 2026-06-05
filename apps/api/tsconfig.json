@@ -11,6 +11,10 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*",
+    "../../packages/typescript-config/types/api.d.ts",
+    "../../packages/typescript-config/types/global.d.ts"
+  ],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts", "**/*test.ts"]
 }
