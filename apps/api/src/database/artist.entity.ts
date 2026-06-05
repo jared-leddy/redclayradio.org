@@ -4,7 +4,7 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateCol
 import 'reflect-metadata';
 
 // Shared Modules
-import { ArtistStatus } from '@redclayradio/utils';
+import { ArtistStatus } from '@redclayradio/utils/enums';
 
 /**
  * An Artist is a musical act featured on the station. Each row is the
