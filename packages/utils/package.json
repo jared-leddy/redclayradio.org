@@ -8,26 +8,17 @@
     "build": "tsc -b",
     "lint": "eslint \"src/**/*.ts\""
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "files": [
     "./dist/**"
   ],
-  "typesVersions": {
-    "*": {
-      "*": [
-        "src/*"
-      ]
-    }
-  },
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+    "./enums": {
+      "types": "./dist/enums/index.d.ts",
+      "default": "./dist/enums/index.js"
     },
-    "./*": {
-      "import": "./dist/*.js",
-      "require": "./dist/*.js"
+    "./interfaces": {
+      "types": "./dist/interfaces/index.d.ts",
+      "default": "./dist/interfaces/index.js"
     }
   },
   "devDependencies": {
