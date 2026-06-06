@@ -74,8 +74,8 @@ export default function ArtistTable({ artists }: ArtistTableProps) {
                   <StatusBadge status={artist.status} />
                 </td>
                 <td className='px-4 py-3 font-ui text-sm uppercase tracking-ui'>
-                  <span className={artist.isActive ? 'text-green-500' : 'text-zinc-500'}>
-                    {artist.isActive ? 'Live' : 'Off'}
+                  <span className={artist.status === ArtistStatus.Approved ? 'text-green-500' : 'text-zinc-500'}>
+                    {artist.status === ArtistStatus.Approved ? 'Live' : 'Off'}
                   </span>
                 </td>
               </tr>
