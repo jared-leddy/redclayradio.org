@@ -12,7 +12,9 @@ export default function Lineup() {
   return (
     <PageLayout>
       <section className='w-8/10 mx-auto my-8'>
-        <h2 className='font-display text-7xl font-black uppercase tracking-display text-orange-100'>Artist Lineup</h2>
+        <h2 className='font-display text-7xl font-black uppercase tracking-display text-orange-100 text-center'>
+          Artist Lineup
+        </h2>
         <hr className='mt-4 border-t border-red-900' />
       </section>
       <ArtistTable artists={mockArtists} />
