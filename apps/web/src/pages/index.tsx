@@ -1,5 +1,4 @@
 // Custom Modules
-import Image from 'next/image';
 import mockup from './../assets/img/RedClayRadio.com-mockup.png';
 
 export default function Home() {
@@ -22,7 +21,7 @@ export default function Home() {
         </a>
       </div>
       <div className='w-8/10 mx-auto pt-20'>
-        <Image src={mockup.src} alt='mockup image' />
+        <img src={mockup.src} alt='mockup image' />
       </div>
     </>
   );
