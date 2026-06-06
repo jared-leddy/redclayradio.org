@@ -1,6 +1,5 @@
 // Custom Modules
 import Radio from '../atoms/icons/Radio';
-import Shuffle from '../atoms/icons/Shuffle';
 
 export default function Header() {
   const today = new Date().toDateString();
@@ -23,13 +22,10 @@ export default function Header() {
       </div>
       <div className='flex w-1/4 items-center justify-center px-4 py-3'>
         <div className='flex items-center gap-3 border-2 border-red-900 px-5 py-2'>
-          <div className='scale-75'>
-            <Shuffle />
-          </div>
-          <div className='font-ui uppercase tracking-ui'>
-            <p className='text-2xl font-bold text-red-800'>Shuffle</p>
-            <p className='text-xs text-stone-100'>Discover New Tunes</p>
-          </div>
+          <a className='font-ui uppercase tracking-ui' href='/lineup'>
+            <p className='text-2xl font-bold text-red-800'>Lineup</p>
+            <p className='text-xs text-stone-100'>Every Act on the Dial</p>
+          </a>
         </div>
       </div>
     </header>
