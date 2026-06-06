@@ -24,7 +24,7 @@ export default function StageSection() {
           isActive: true,
           location: 'New Brunswick, NJ, USA',
           name: 'Thursday',
-          playerURL: 'https://open.spotify.com/artist/61awhbNK16ku1uQyXRsQj5?theme=0',
+          playerURL: 'https://open.spotify.com/embed/artist/61awhbNK16ku1uQyXRsQj5?theme=0',
           status: ArtistStatus.Approved
         }}
         stageType={'side' as StageType}
