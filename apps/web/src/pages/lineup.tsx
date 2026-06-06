@@ -1,7 +1,6 @@
 // Custom Modules
 import ArtistTable from '@/components/organisms/ArtistTable';
-import Footer from '@/components/organisms/Footer';
-import Header from '@/components/organisms/Header';
+import PageLayout from '@/components/templates/PageLayout';
 import mockArtists from '@/data/mockArtists';
 
 /**
@@ -11,14 +10,12 @@ import mockArtists from '@/data/mockArtists';
  */
 export default function Lineup() {
   return (
-    <>
-      <Header />
+    <PageLayout>
       <section className='w-8/10 mx-auto my-8'>
         <h2 className='font-display text-7xl font-black uppercase tracking-display text-orange-100'>Artist Lineup</h2>
         <hr className='mt-4 border-t border-red-900' />
       </section>
       <ArtistTable artists={mockArtists} />
-      <Footer />
-    </>
+    </PageLayout>
   );
 }
