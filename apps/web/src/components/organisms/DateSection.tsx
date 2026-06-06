@@ -18,7 +18,6 @@ export default function DateSection() {
       <h2 className='mt-24 relative text-center font-display text-8xl font-black uppercase leading-none tracking-display text-orange-100'>
         Two Stages. One Song.
       </h2>
-      <hr className='mt-4 border-t border-red-900' />
     </section>
   );
 }
