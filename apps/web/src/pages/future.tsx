@@ -3,11 +3,10 @@ import type { OnDeckListItem } from '@redclayradio/utils/interfaces';
 
 // Custom Modules
 import StageSection from '@/components/organisms/StageSection';
+import PageLayout from '@/components/templates/PageLayout';
 import OnDeckBanner from '../components/molecules/OnDeckBanner';
 import SongBanner from '../components/molecules/SongBanner';
 import DateSection from '../components/organisms/DateSection';
-import Footer from '../components/organisms/Footer';
-import Header from '../components/organisms/Header';
 
 const onDeck: OnDeckListItem[] = [
   { artist: 'Knocked Loose', genre: 'Metalcore' },
@@ -30,12 +29,12 @@ export default function FutureHome() {
       <div className='w-full bg-red-900 text-stone-100 font-bold text-lg text-center uppercase py-2'>
         Notice: This station is not on the airwaves yet.
       </div>
-      <Header />
-      <DateSection />
-      <StageSection />
-      <SongBanner />
-      <OnDeckBanner items={onDeck} />
-      <Footer />
+      <PageLayout>
+        <DateSection />
+        <StageSection />
+        <SongBanner />
+        <OnDeckBanner items={onDeck} />
+      </PageLayout>
     </>
   );
 }
