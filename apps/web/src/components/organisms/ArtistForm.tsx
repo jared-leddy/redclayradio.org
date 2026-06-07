@@ -18,20 +18,18 @@ type ArtistFormProps = {
 
 /**
  * Final step of the Add Artist flow: a controlled form that creates an Artist
- * from a Spotify selection. When `initialArtist` is supplied, its name, genres,
- * embeddable player URL, and Spotify id prefill the fields; location is always
- * entered by hand since Spotify doesn't provide it. The Spotify id is required
- * and unique server-side, so submitting an artist already in the roster surfaces
- * a conflict message rather than creating a duplicate. Genres are edited as a
- * comma-separated list and split into an array on submit, and blank optional
- * fields are omitted from the payload. The created Artist is handed back through
- * `onSuccess`. When provided, `onBack` returns to the search step; `onCancel`
- * dismisses the flow. Submission failures are surfaced inline.
+ * from a Spotify selection. When `initialArtist` is supplied, its name,
+ * embeddable player URL, and Spotify id prefill the fields. Genres and location
+ * are not entered here — they are derived server-side from MusicBrainz at create
+ * time. The Spotify id is required and unique server-side, so submitting an
+ * artist already in the roster surfaces a conflict message rather than creating
+ * a duplicate. Blank optional fields are omitted from the payload. The created
+ * Artist is handed back through `onSuccess`. When provided, `onBack` returns to
+ * the search step; `onCancel` dismisses the flow. Submission failures are
+ * surfaced inline.
  */
 export default function ArtistForm({ initialArtist, onSuccess, onBack, onCancel }: ArtistFormProps) {
   const [name, setName] = useState(initialArtist?.name ?? '');
-  const [genres, setGenres] = useState(initialArtist?.genres.join(', ') ?? '');
-  const [location, setLocation] = useState('');
   const [playerURL, setPlayerURL] = useState(initialArtist?.playerURL ?? '');
   const [spotifyID, setSpotifyID] = useState(initialArtist?.spotifyID ?? '');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,12 +42,7 @@ export default function ArtistForm({ initialArtist, onSuccess, onBack, onCancel 
 
     const payload: ArtistCreate = {
       name: name.trim(),
-      genres: genres
-        .split(',')
-        .map((genre) => genre.trim())
-        .filter(Boolean),
       spotifyID: spotifyID.trim(),
-      ...(location.trim() && { location: location.trim() }),
       ...(playerURL.trim() && { playerURL: playerURL.trim() })
     };
 
@@ -75,21 +68,6 @@ export default function ArtistForm({ initialArtist, onSuccess, onBack, onCancel 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
       <TextField id='artist-name' label='Name' value={name} onChange={setName} required placeholder='Blink 182' />
-      <TextField
-        id='artist-genres'
-        label='Genres'
-        value={genres}
-        onChange={setGenres}
-        hint='Comma-separated, e.g. Punk, Pop Punk'
-        placeholder='Punk, Pop Punk'
-      />
-      <TextField
-        id='artist-location'
-        label='Location'
-        value={location}
-        onChange={setLocation}
-        placeholder='Charlotte, NC, USA'
-      />
       <TextField
         id='artist-player'
         label='Spotify URL'
