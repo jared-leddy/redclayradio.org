@@ -20,6 +20,6 @@ export default class ArtistCreateDTO {
   location?: string;
 
   @IsString()
-  @IsOptional()
-  spotifyID?: string;
+  @IsNotEmpty()
+  spotifyID: string;
 }
