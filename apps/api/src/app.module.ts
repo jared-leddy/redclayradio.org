@@ -1,7 +1,7 @@
 // NPM Modules
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { APP_FILTER } from '@nestjs/core';
+import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 // Custom Modules
@@ -10,6 +10,7 @@ import Artist from './database/artist.entity';
 import LoggerModule from './logger/logger.module';
 import SpotifyModule from './spotify/spotify.module';
 import TypeORMExceptionFilter from './utils/filters/TypeORMException.filter';
+import APIKeyGuard from './utils/guards/APIKey.guard';
 
 @Module({
   imports: [
@@ -42,6 +43,10 @@ import TypeORMExceptionFilter from './utils/filters/TypeORMException.filter';
     {
       provide: APP_FILTER,
       useClass: TypeORMExceptionFilter
+    },
+    {
+      provide: APP_GUARD,
+      useClass: APIKeyGuard
     }
   ]
 })
