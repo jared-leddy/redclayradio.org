@@ -54,12 +54,13 @@ export default class Artist {
   location?: string;
 
   /**
-   * Spotify artist ID, when the artist was sourced from or matched to Spotify.
+   * Spotify artist ID the artist was sourced from. Required and unique: it is the
+   * key that prevents the same artist being added to the roster twice.
    */
-  @Column({ nullable: true })
+  @Column({ unique: true })
   @IsString()
-  @IsOptional()
-  spotifyID?: string;
+  @IsNotEmpty()
+  spotifyID: string;
 
   /**
    * Moderation status controlling public visibility. Defaults to `Pending`.
