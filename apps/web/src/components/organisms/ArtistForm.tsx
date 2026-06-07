@@ -1,34 +1,43 @@
 // NPM Modules
-import axios from 'axios';
-import { useState, type FormEvent } from 'react';
+import { isAxiosError } from 'axios';
+import { useState, type SubmitEvent } from 'react';
 
 // Shared Modules
-import type { Artist, ArtistCreate } from '@redclayradio/utils/interfaces';
+import type { Artist, ArtistCreate, SpotifyArtist } from '@redclayradio/utils/interfaces';
 
 // Custom Modules
+import HTTPService from '@/utils/HTTPService';
 import TextField from '../atoms/TextField';
 
 type ArtistFormProps = {
+  initialArtist?: SpotifyArtist;
   onSuccess: (artist: Artist) => void;
+  onBack?: () => void;
   onCancel: () => void;
 };
 
 /**
- * Controlled form for submitting a new Artist to the API. Genres are typed as a
- * comma-separated list and split into an array on submit; blank optional fields
- * are omitted from the payload. The created Artist is handed back through
- * `onSuccess`, while submission failures are surfaced inline.
+ * Final step of the Add Artist flow: a controlled form that creates an Artist
+ * from a Spotify selection. When `initialArtist` is supplied, its name, genres,
+ * embeddable player URL, and Spotify id prefill the fields; location is always
+ * entered by hand since Spotify doesn't provide it. The Spotify id is required
+ * and unique server-side, so submitting an artist already in the roster surfaces
+ * a conflict message rather than creating a duplicate. Genres are edited as a
+ * comma-separated list and split into an array on submit, and blank optional
+ * fields are omitted from the payload. The created Artist is handed back through
+ * `onSuccess`. When provided, `onBack` returns to the search step; `onCancel`
+ * dismisses the flow. Submission failures are surfaced inline.
  */
-export default function ArtistForm({ onSuccess, onCancel }: ArtistFormProps) {
-  const [name, setName] = useState('');
-  const [genres, setGenres] = useState('');
+export default function ArtistForm({ initialArtist, onSuccess, onBack, onCancel }: ArtistFormProps) {
+  const [name, setName] = useState(initialArtist?.name ?? '');
+  const [genres, setGenres] = useState(initialArtist?.genres.join(', ') ?? '');
   const [location, setLocation] = useState('');
-  const [playerURL, setPlayerURL] = useState('');
-  const [spotifyID, setSpotifyID] = useState('');
+  const [playerURL, setPlayerURL] = useState(initialArtist?.playerURL ?? '');
+  const [spotifyID, setSpotifyID] = useState(initialArtist?.spotifyID ?? '');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
     setError(null);
@@ -39,21 +48,25 @@ export default function ArtistForm({ onSuccess, onCancel }: ArtistFormProps) {
         .split(',')
         .map((genre) => genre.trim())
         .filter(Boolean),
+      spotifyID: spotifyID.trim(),
       ...(location.trim() && { location: location.trim() }),
-      ...(playerURL.trim() && { playerURL: playerURL.trim() }),
-      ...(spotifyID.trim() && { spotifyID: spotifyID.trim() })
+      ...(playerURL.trim() && { playerURL: playerURL.trim() })
     };
 
     try {
-      const response = await axios<{ data: Artist }>({
+      const response = await HTTPService<{ data: Artist }>({
         method: 'post',
-        url: `${process.env.API_URL}/artist`,
+        url: '/artist',
         data: payload
       });
 
       onSuccess(response.data.data);
-    } catch {
-      setError('Something went wrong submitting the artist. Please try again.');
+    } catch (error) {
+      if (isAxiosError(error) && error.response?.status === 409) {
+        setError('This artist is already in the lineup.');
+      } else {
+        setError('Something went wrong submitting the artist. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -89,10 +102,20 @@ export default function ArtistForm({ onSuccess, onCancel }: ArtistFormProps) {
         label='Spotify ID'
         value={spotifyID}
         onChange={setSpotifyID}
+        required
         placeholder='6Ghvu1VvMGScGpOUJBAHNH'
       />
       {error && <p className='font-ui text-sm text-red-600'>{error}</p>}
       <div className='mt-2 flex justify-end gap-3'>
+        {onBack && (
+          <button
+            type='button'
+            onClick={onBack}
+            className='mr-auto border border-zinc-700 px-4 py-2 font-ui text-sm font-bold uppercase tracking-ui text-stone-300 transition-colors hover:border-stone-500'
+          >
+            Back
+          </button>
+        )}
         <button
           type='button'
           onClick={onCancel}
