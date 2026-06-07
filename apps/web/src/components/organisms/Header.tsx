@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 // Custom Modules
-import ArtistForm from './ArtistForm';
+import AddArtistFlow from './AddArtistFlow';
 import Modal from '../molecules/Modal';
 
 /**
@@ -74,7 +74,7 @@ export default function Header() {
         </div>
       </header>
       <Modal isOpen={isArtistModalOpen} onClose={() => setIsArtistModalOpen(false)} title='Add Artist'>
-        <ArtistForm onSuccess={() => setIsArtistModalOpen(false)} onCancel={() => setIsArtistModalOpen(false)} />
+        <AddArtistFlow onComplete={() => setIsArtistModalOpen(false)} onCancel={() => setIsArtistModalOpen(false)} />
       </Modal>
     </>
   );
