@@ -19,7 +19,7 @@ export default function StageCard({ artist, stageType }: StageCardProps) {
         </div>
         <div className='flex-1'>
           <p className='font-heading text-lg font-bold uppercase tracking-ui text-red-800'>{stageType}</p>
-          <h3 className='font-display text-7xl font-black uppercase leading-none tracking-display text-orange-100'>
+          <h3 className='font-display text-5xl font-black uppercase leading-none tracking-display text-orange-100'>
             {artist.name}
           </h3>
           <ul className='mt-4 flex flex-wrap gap-2'>
