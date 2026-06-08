@@ -39,10 +39,10 @@ export default class ArtistService {
   }
 
   /**
-   * Returns every Artist, newest first.
+   * Returns every Artist, ordered alphabetically by name.
    */
   readAll(): Promise<Artist[]> {
-    return this.artistRepository.find({ order: { createdOn: 'DESC' } });
+    return this.artistRepository.find({ order: { name: 'ASC' } });
   }
 
   /**
