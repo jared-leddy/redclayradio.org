@@ -11,6 +11,7 @@ import LineupService from './lineup.service';
 @Module({
   imports: [TypeOrmModule.forFeature([Artist, Lineup])],
   controllers: [LineupController],
-  providers: [LineupService]
+  providers: [LineupService],
+  exports: [LineupService]
 })
 export default class LineupModule {}
