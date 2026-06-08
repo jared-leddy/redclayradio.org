@@ -31,19 +31,19 @@ export default function Header() {
 
   return (
     <>
-      <header className='w-8/10 mx-auto border border-red-900 bg-zinc-950'>
+      <header className='w-8/10 mx-auto border border-red-500 bg-zinc-950'>
         <div className='flex flex-col items-center justify-center gap-2 px-6 py-4 font-ui uppercase tracking-ui sm:flex-row sm:justify-between'>
           <div className='flex items-center gap-2'>
-            <span className='h-3 w-3 animate-pulse rounded-full bg-red-700' />
-            <span className='text-xl font-bold text-red-800'>On Air</span>
+            <span className='h-3 w-3 animate-pulse rounded-full bg-red-500' />
+            <span className='text-xl font-bold text-red-500'>On Air</span>
             <span className='text-stone-500'>&middot;</span>
             <span className='text-sm text-stone-100'>From the Carolinas</span>
           </div>
           <p className='font-mono text-lg tracking-mono text-stone-100'>{today}</p>
         </div>
-        <div className='flex items-center justify-between border-t border-red-900'>
+        <div className='flex items-center justify-between border-t border-red-500'>
           <Link href='/' className='block px-6 pt-4 text-center'>
-            <h1 className='font-display text-6xl font-black uppercase tracking-display text-red-800 transition-colors hover:text-red-700'>
+            <h1 className='font-display text-6xl font-black uppercase tracking-display text-red-500 transition-colors hover:text-red-500'>
               Red Clay Radio
             </h1>
           </Link>
@@ -56,7 +56,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={`text-lg font-bold transition-colors ${
-                    isActive ? 'text-red-700' : 'text-stone-100 hover:text-red-700'
+                    isActive ? 'text-red-500' : 'text-stone-100 hover:text-red-500'
                   }`}
                 >
                   {link.label}
@@ -66,7 +66,7 @@ export default function Header() {
             <button
               type='button'
               onClick={() => setIsArtistModalOpen(true)}
-              className='border border-red-900 px-3 py-1 text-lg font-bold text-red-800 transition-colors hover:bg-red-900 hover:text-stone-100'
+              className='border border-red-500 px-3 py-1 text-lg font-bold text-red-500 transition-colors hover:bg-red-500 hover:text-stone-100'
             >
               Add Artist
             </button>

@@ -11,7 +11,7 @@ export default function DateSection() {
     <section className='relative w-8/10 mx-auto mb-8 overflow-hidden'>
       <p
         aria-hidden='true'
-        className='pointer-events-none absolute inset-x-0 top-0 select-none whitespace-nowrap text-center font-display text-9xl font-black uppercase leading-none text-stone-900/70'
+        className='pointer-events-none absolute inset-x-0 top-0 select-none whitespace-nowrap text-center font-display text-9xl font-black uppercase leading-none text-orange-100'
       >
         {today}
       </p>

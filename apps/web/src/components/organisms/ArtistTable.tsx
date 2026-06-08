@@ -40,10 +40,10 @@ export default function ArtistTable({ artists }: ArtistTableProps) {
   return (
     <section className='w-8/10 mx-auto'>
       <StatusTabs active={filter} counts={counts} onChange={setFilter} />
-      <div className='mt-4 border border-red-900'>
+      <div className='mt-4 border border-red-500'>
         <table className='w-full border-collapse text-left'>
           <thead>
-            <tr className='bg-zinc-950 font-ui text-xs uppercase tracking-ui text-red-800'>
+            <tr className='bg-zinc-950 font-ui text-xs uppercase tracking-ui text-red-500'>
               <th className='w-1/4 px-4 py-3'>Artist</th>
               <th className='px-4 py-3'>Genres</th>
               <th className='px-4 py-3'>Location</th>
@@ -74,7 +74,7 @@ export default function ArtistTable({ artists }: ArtistTableProps) {
                   <StatusBadge status={artist.status} />
                 </td>
                 <td className='px-4 py-3 font-ui text-sm uppercase tracking-ui'>
-                  <span className={artist.status === ArtistStatus.Approved ? 'text-green-500' : 'text-zinc-500'}>
+                  <span className={artist.status === ArtistStatus.Approved ? 'text-green-500' : 'text-orange-100'}>
                     {artist.status === ArtistStatus.Approved ? 'Live' : 'Off'}
                   </span>
                 </td>

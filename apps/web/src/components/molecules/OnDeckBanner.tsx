@@ -20,7 +20,7 @@ export default function OnDeckBanner({ items }: OnDeckBannerProps) {
       <div className='flex items-center'>
         <div className='flex items-center'>
           <Signal />
-          <h2 className='text-red-700 uppercase w-16'>On Deck</h2>
+          <h2 className='text-red-500 uppercase w-16'>On Deck</h2>
           <ChevronRight />
         </div>
         <ul className='flex max-h-14 flex-wrap items-center overflow-hidden'>
