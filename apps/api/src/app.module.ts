@@ -7,6 +7,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 // Custom Modules
 import ArtistModule from './artist/artist.module';
 import Artist from './database/artist.entity';
+import Genre from './database/genre.entity';
+import GenreModule from './genre/genre.module';
 import LoggerModule from './logger/logger.module';
 import SpotifyModule from './spotify/spotify.module';
 import TypeORMExceptionFilter from './utils/filters/TypeORMException.filter';
@@ -25,7 +27,7 @@ import APIKeyGuard from './utils/guards/APIKey.guard';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Artist],
+      entities: [Artist, Genre],
       ssl:
         process.env.DB_SSL === 'true'
           ? {
@@ -35,6 +37,7 @@ import APIKeyGuard from './utils/guards/APIKey.guard';
       synchronize: true
     }),
     ArtistModule,
+    GenreModule,
     LoggerModule,
     SpotifyModule
   ],

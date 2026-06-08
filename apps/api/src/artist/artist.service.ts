@@ -5,6 +5,8 @@ import { Repository } from 'typeorm';
 
 // Custom Modules
 import Artist from '@/database/artist.entity';
+import GenreService from '@/genre/genre.service';
+import MusicBrainzService from '@/musicbrainz/musicbrainz.service';
 import ArtistCreateDTO from './dto/create.dto';
 import ArtistUpdateDTO from './dto/update.dto';
 
@@ -16,14 +18,22 @@ import ArtistUpdateDTO from './dto/update.dto';
 export default class ArtistService {
   constructor(
     @InjectRepository(Artist)
-    private readonly artistRepository: Repository<Artist>
+    private readonly artistRepository: Repository<Artist>,
+    private readonly genreService: GenreService,
+    private readonly musicBrainzService: MusicBrainzService
   ) {}
 
   /**
-   * Persists a new Artist and returns the created row.
+   * Persists a new Artist and returns the created row. The location and genres
+   * are derived server-side: MusicBrainz is queried by name for the artist's
+   * origin and tags, and those tags are cross-referenced against our genre
+   * vocabulary before the row is created.
    */
-  createOne(data: ArtistCreateDTO): Promise<Artist> {
-    const artist = this.artistRepository.create(data);
+  async createOne(data: ArtistCreateDTO): Promise<Artist> {
+    const { location, tags } = await this.musicBrainzService.searchArtistMetadata(data.name);
+    const genres = await this.genreService.filterKnown(tags);
+
+    const artist = this.artistRepository.create({ ...data, genres, location });
 
     return this.artistRepository.save(artist);
   }

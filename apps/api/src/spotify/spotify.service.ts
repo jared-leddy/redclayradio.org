@@ -57,21 +57,6 @@ export default class SpotifyService {
   }
 
   /**
-   * Looks up a single Spotify artist by id and returns a normalized result.
-   */
-  async getArtist(spotifyID: string): Promise<SpotifyArtist> {
-    const token = await this.getAccessToken();
-
-    const response = await axios<RawSpotifyArtist>({
-      method: 'get',
-      url: `${process.env.SPOTIFY_API_URL}/artists/${spotifyID}`,
-      headers: { Authorization: `Bearer ${token}` }
-    });
-
-    return this.normalizeArtist(response.data);
-  }
-
-  /**
    * Maps a raw Spotify artist object onto our normalized {@link SpotifyArtist},
    * including the embeddable player URL used by the web client.
    */
