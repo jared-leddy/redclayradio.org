@@ -23,7 +23,7 @@ export default function StageCard({ artist, stageType }: StageCardProps) {
             {artist.name}
           </h3>
           <ul className='mt-4 flex flex-wrap gap-2'>
-            {artist.genres.map((genre) => (
+            {(artist.genres ?? []).map((genre) => (
               <li
                 key={genre}
                 className='border border-zinc-700 px-3 py-1 font-ui text-xs uppercase tracking-ui text-stone-100'
