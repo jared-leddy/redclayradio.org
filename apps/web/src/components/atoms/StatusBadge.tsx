@@ -12,7 +12,7 @@ type StatusBadgeProps = {
 const statusStyles: Record<ArtistStatus, string> = {
   [ArtistStatus.Approved]: 'border-green-600 text-green-500',
   [ArtistStatus.Pending]: 'border-yellow-600 text-yellow-500',
-  [ArtistStatus.Rejected]: 'border-red-700 text-red-600'
+  [ArtistStatus.Rejected]: 'border-red-500 text-red-500'
 };
 
 /**
