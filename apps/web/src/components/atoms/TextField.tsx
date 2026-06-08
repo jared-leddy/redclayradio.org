@@ -18,9 +18,9 @@ type TextFieldProps = {
 export default function TextField({ id, label, value, onChange, required = false, placeholder, hint }: TextFieldProps) {
   return (
     <div className='flex flex-col gap-1'>
-      <label htmlFor={id} className='font-ui text-xs uppercase tracking-ui text-red-800'>
+      <label htmlFor={id} className='font-ui text-xs uppercase tracking-ui text-red-500'>
         {label}
-        {required && <span className='text-red-600'> *</span>}
+        {required && <span className='text-red-500'> *</span>}
       </label>
       <input
         id={id}
@@ -29,7 +29,7 @@ export default function TextField({ id, label, value, onChange, required = false
         required={required}
         placeholder={placeholder}
         onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event.target.value)}
-        className='border border-zinc-700 bg-black px-3 py-2 font-ui text-stone-100 outline-none transition-colors focus:border-red-700'
+        className='border border-zinc-700 bg-black px-3 py-2 font-ui text-stone-100 outline-none transition-colors focus:border-red-500'
       />
       {hint && <span className='font-ui text-xs text-stone-500'>{hint}</span>}
     </div>
