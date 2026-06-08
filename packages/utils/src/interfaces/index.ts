@@ -1,5 +1,6 @@
 export type { default as Artist } from './Artist.interface';
 export type { default as ArtistCreate } from './ArtistCreate.interface';
+export type { default as Lineup } from './Lineup.interface';
 export type { default as MusicBrainzArea } from './MusicBrainzArea.interface';
 export type { default as MusicBrainzAreaRelation } from './MusicBrainzAreaRelation.interface';
 export type { default as MusicBrainzArtist } from './MusicBrainzArtist.interface';

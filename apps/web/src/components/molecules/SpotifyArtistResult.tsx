@@ -20,9 +20,9 @@ export default function SpotifyArtistResult({ artist, onSelect }: SpotifyArtistR
       className='flex w-full items-center gap-3 border border-zinc-700 bg-black px-3 py-2 text-left transition-colors hover:border-red-700'
     >
       {artist.imageURL ? (
-        <img src={artist.imageURL} alt={artist.name} className='h-12 w-12 flex-shrink-0 object-cover' />
+        <img src={artist.imageURL} alt={artist.name} className='h-12 w-12 shrink-0 object-cover' />
       ) : (
-        <div className='h-12 w-12 flex-shrink-0 bg-zinc-800' />
+        <div className='h-12 w-12 shrink-0 bg-zinc-800' />
       )}
       <div className='flex flex-col gap-0.5 overflow-hidden'>
         <span className='truncate font-heading text-lg font-bold uppercase tracking-ui text-orange-100'>
