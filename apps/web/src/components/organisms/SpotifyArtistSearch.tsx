@@ -67,13 +67,13 @@ export default function SpotifyArtistSearch({ onSelect, onCancel }: SpotifyArtis
         <button
           type='submit'
           disabled={isSearching || !query.trim()}
-          className='border border-red-900 bg-red-900 px-4 py-2 font-ui text-sm font-bold uppercase tracking-ui text-stone-100 transition-colors hover:bg-red-800 disabled:opacity-50'
+          className='border border-red-500 bg-red-500 px-4 py-2 font-ui text-sm font-bold uppercase tracking-ui text-stone-100 transition-colors hover:bg-red-500 disabled:opacity-50'
         >
           {isSearching ? 'Searching…' : 'Search'}
         </button>
       </form>
 
-      {error && <p className='font-ui text-sm text-red-600'>{error}</p>}
+      {error && <p className='font-ui text-sm text-red-500'>{error}</p>}
 
       {results.length > 0 && (
         <ul className='flex max-h-80 flex-col gap-2 overflow-y-auto'>
