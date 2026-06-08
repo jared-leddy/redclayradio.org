@@ -17,10 +17,14 @@ export default function SpotifyArtistResult({ artist, onSelect }: SpotifyArtistR
     <button
       type='button'
       onClick={() => onSelect(artist)}
-      className='flex w-full items-center gap-3 border border-zinc-700 bg-black px-3 py-2 text-left transition-colors hover:border-red-700'
+      className='flex w-full items-center gap-3 border border-zinc-700 bg-black px-3 py-2 text-left transition-colors hover:border-red-500'
     >
       {artist.imageURL ? (
-        <img src={artist.imageURL} alt={artist.name} className='h-12 w-12 shrink-0 object-cover' />
+        <img
+          src={artist.imageURL}
+          alt={`Spotify Artist art for ${artist.name}`}
+          className='h-12 w-12 shrink-0 object-cover'
+        />
       ) : (
         <div className='h-12 w-12 shrink-0 bg-zinc-800' />
       )}
