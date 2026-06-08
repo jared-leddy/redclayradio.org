@@ -7,6 +7,10 @@ export type { default as MusicBrainzArtist } from './MusicBrainzArtist.interface
 export type { default as MusicBrainzArtistSearch } from './MusicBrainzArtistSearch.interface';
 export type { default as MusicBrainzTag } from './MusicBrainzTag.interface';
 export type { default as OnDeckListItem } from './OnDeckListItem.interface';
+export type { default as RawSpotifyAlbum } from './RawSpotifyAlbum.interface';
 export type { default as RawSpotifyArtist } from './RawSpotifyArtist.interface';
+export type { default as RawSpotifyTrack } from './RawSpotifyTrack.interface';
+export type { default as Song } from './Song.interface';
 export type { default as SpotifyArtist } from './SpotifyArtist.interface';
 export type { default as SpotifyTokenResponse } from './SpotifyTokenResponse.interface';
+export type { default as SpotifyTrack } from './SpotifyTrack.interface';

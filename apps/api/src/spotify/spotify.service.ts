@@ -4,7 +4,14 @@ import { ConfigService } from '@nestjs/config';
 import axios from 'axios';
 
 // Shared Modules
-import type { RawSpotifyArtist, SpotifyArtist, SpotifyTokenResponse } from '@redclayradio/utils/interfaces';
+import type {
+  RawSpotifyAlbum,
+  RawSpotifyArtist,
+  RawSpotifyTrack,
+  SpotifyArtist,
+  SpotifyTokenResponse,
+  SpotifyTrack
+} from '@redclayradio/utils/interfaces';
 
 /**
  * Talks to the Spotify Web API using the Client Credentials flow (app-level
@@ -71,6 +78,78 @@ export default class SpotifyService {
       followers: artist.followers?.total,
       popularity: artist.popularity
     };
+  }
+
+  /**
+   * Maps a raw Spotify track and its album onto our normalized {@link SpotifyTrack},
+   * including the embeddable track player URL used by the web client.
+   */
+  private normalizeTrack(track: RawSpotifyTrack, album: RawSpotifyAlbum): SpotifyTrack {
+    return {
+      spotifyID: track.id,
+      title: track.name,
+      album: album.name,
+      year: album.release_date?.slice(0, 4) ?? '',
+      playerURL: `https://open.spotify.com/embed/track/${track.id}?theme=0`
+    };
+  }
+
+  /**
+   * Picks a single album uniformly at random from across the artist's full
+   * catalog of albums and singles (not "appears on" compilations). The albums
+   * endpoint caps `limit` at 10, so rather than page through everything we read
+   * the catalog size and fetch one album at a random offset. Throws if the artist
+   * has no albums.
+   */
+  private async getRandomAlbum(spotifyID: string, token: string): Promise<RawSpotifyAlbum> {
+    const url = `${process.env.SPOTIFY_API_URL}/artists/${spotifyID}/albums`;
+    const headers = { Authorization: `Bearer ${token}` };
+    const params = { include_groups: 'album,single', market: 'US' };
+
+    const countResponse = await axios<{ total: number }>({
+      method: 'get',
+      url,
+      headers,
+      params: { ...params, limit: 1 }
+    });
+
+    const { total } = countResponse.data;
+
+    if (total === 0) {
+      throw new Error(`Artist ${spotifyID} has no albums.`);
+    }
+
+    const albumResponse = await axios<{ items: RawSpotifyAlbum[] }>({
+      method: 'get',
+      url,
+      headers,
+      params: { ...params, limit: 1, offset: Math.floor(Math.random() * total) }
+    });
+
+    return albumResponse.data.items[0];
+  }
+
+  /**
+   * Returns a random track from a random album in the artist's catalog. Restricts
+   * to the artist's own albums and singles so the result is a genuine catalog cut
+   * rather than the artist's top hit.
+   */
+  async getRandomTrack(spotifyID: string): Promise<SpotifyTrack> {
+    const token = await this.getAccessToken();
+
+    const album = await this.getRandomAlbum(spotifyID, token);
+
+    const tracksResponse = await axios<{ items: RawSpotifyTrack[] }>({
+      method: 'get',
+      url: `${process.env.SPOTIFY_API_URL}/albums/${album.id}/tracks`,
+      headers: { Authorization: `Bearer ${token}` },
+      params: { limit: 50, market: 'US' }
+    });
+
+    const tracks = tracksResponse.data.items;
+    const track = tracks[Math.floor(Math.random() * tracks.length)];
+
+    return this.normalizeTrack(track, album);
   }
 
   /**
