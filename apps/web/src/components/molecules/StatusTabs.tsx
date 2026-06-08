@@ -39,14 +39,14 @@ export default function StatusTabs({ active, counts, onChange }: StatusTabsProps
             key={tab.value}
             type='button'
             onClick={() => onChange(tab.value)}
-            className={`flex items-center gap-2 border px-4 py-2 font-ui text-sm uppercase tracking-ui transition-colors ${
+            className={`flex items-center gap-2 border px-4 py-2 font-ui font-bold text-sm uppercase tracking-ui transition-colors ${
               isActive
-                ? 'border-red-900 bg-red-900 text-stone-100'
-                : 'border-zinc-700 text-stone-300 hover:border-red-900 hover:text-red-700'
+                ? 'border-red-700 bg-red-700 text-orange-100'
+                : 'border-zinc-700 text-stone-300 hover:border-red-500 hover:text-red-500'
             }`}
           >
             {tab.label}
-            <span className={isActive ? 'text-stone-100' : 'text-zinc-500'}>{counts[tab.value]}</span>
+            <span className={isActive ? 'text-stone-100' : 'text-orange-100'}>{counts[tab.value]}</span>
           </button>
         );
       })}
