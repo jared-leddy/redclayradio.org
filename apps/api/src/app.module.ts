@@ -2,13 +2,16 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER, APP_GUARD } from '@nestjs/core';
+import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 // Custom Modules
 import ArtistModule from './artist/artist.module';
 import Artist from './database/artist.entity';
 import Genre from './database/genre.entity';
+import Lineup from './database/lineup.entity';
 import GenreModule from './genre/genre.module';
+import LineupModule from './lineup/lineup.module';
 import LoggerModule from './logger/logger.module';
 import SpotifyModule from './spotify/spotify.module';
 import TypeORMExceptionFilter from './utils/filters/TypeORMException.filter';
@@ -27,7 +30,7 @@ import APIKeyGuard from './utils/guards/APIKey.guard';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Artist, Genre],
+      entities: [Artist, Genre, Lineup],
       ssl:
         process.env.DB_SSL === 'true'
           ? {
@@ -36,8 +39,10 @@ import APIKeyGuard from './utils/guards/APIKey.guard';
           : false,
       synchronize: true
     }),
+    ScheduleModule.forRoot(),
     ArtistModule,
     GenreModule,
+    LineupModule,
     LoggerModule,
     SpotifyModule
   ],
