@@ -44,7 +44,7 @@ export default function ArtistTable({ artists }: ArtistTableProps) {
         <table className='w-full border-collapse text-left'>
           <thead>
             <tr className='bg-zinc-950 font-ui text-xs uppercase tracking-ui text-red-800'>
-              <th className='px-4 py-3'>Artist</th>
+              <th className='w-1/4 px-4 py-3'>Artist</th>
               <th className='px-4 py-3'>Genres</th>
               <th className='px-4 py-3'>Location</th>
               <th className='px-4 py-3'>Status</th>
@@ -59,7 +59,7 @@ export default function ArtistTable({ artists }: ArtistTableProps) {
                 </td>
                 <td className='px-4 py-3'>
                   <ul className='flex flex-wrap gap-2'>
-                    {artist.genres.map((genre) => (
+                    {(artist.genres ?? []).map((genre) => (
                       <li
                         key={genre}
                         className='border border-zinc-700 px-2 py-1 font-ui text-xs uppercase tracking-ui text-stone-100'
