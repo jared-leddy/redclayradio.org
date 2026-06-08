@@ -1,6 +1,7 @@
 // NPM Modules
 import axios from 'axios';
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import Head from 'next/head';
 
 // Shared Modules
 import type { Lineup, Song } from '@redclayradio/utils/interfaces';
@@ -19,12 +20,17 @@ import DateSection from '../components/organisms/DateSection';
  */
 export default function FutureHome({ lineup, song }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <PageLayout>
-      <DateSection />
-      <StageSection main={lineup.stages.main} side={lineup.stages.side} />
-      <SongBanner song={song} />
-      <OnDeckBanner items={lineup.onDeck} />
-    </PageLayout>
+    <>
+      <Head>
+        <title>Red Clay Radio</title>
+      </Head>
+      <PageLayout>
+        <DateSection />
+        <StageSection main={lineup.stages.main} side={lineup.stages.side} />
+        <SongBanner song={song} />
+        <OnDeckBanner items={lineup.onDeck} />
+      </PageLayout>
+    </>
   );
 }
 
