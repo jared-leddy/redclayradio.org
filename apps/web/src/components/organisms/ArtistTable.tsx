@@ -41,9 +41,9 @@ export default function ArtistTable({ artists }: ArtistTableProps) {
     <section className='w-8/10 mx-auto'>
       <StatusTabs active={filter} counts={counts} onChange={setFilter} />
       <div className='mt-4 border border-red-500'>
-        <table className='w-full border-collapse text-left'>
+        <table className='w-full border-collapse text-left bg-zinc-950'>
           <thead>
-            <tr className='bg-zinc-950 font-ui text-xs uppercase tracking-ui text-red-500'>
+            <tr className='font-ui text-xs uppercase tracking-ui text-red-500'>
               <th className='w-1/4 px-4 py-3'>Artist</th>
               <th className='px-4 py-3'>Genres</th>
               <th className='px-4 py-3'>Location</th>
