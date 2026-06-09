@@ -17,10 +17,10 @@ type OnDeckBannerProps = {
 export default function OnDeckBanner({ items }: OnDeckBannerProps) {
   return (
     <section className='w-full bg-zinc-950 overflow-x-hidden'>
-      <div className='flex items-center'>
-        <div className='flex items-center'>
+      <div className='flex items-center px-2 sm:px-0'>
+        <div className='flex shrink-0 items-center'>
           <Signal />
-          <h2 className='text-red-500 uppercase w-16'>On Deck</h2>
+          <h2 className='w-16 text-red-500 uppercase'>On Deck</h2>
           <ChevronRight />
         </div>
         <ul className='flex max-h-14 flex-wrap items-center overflow-hidden'>

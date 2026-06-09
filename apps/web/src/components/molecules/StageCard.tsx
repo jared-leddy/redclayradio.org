@@ -12,14 +12,14 @@ type StageCardProps = {
 
 export default function StageCard({ artist, stageType }: StageCardProps) {
   return (
-    <article className='flex flex-col border border-red-500 bg-zinc-950 p-6'>
+    <article className='flex flex-col border border-red-500 bg-zinc-950 p-4 sm:p-6'>
       <div className='flex items-start gap-3'>
         <div className='flex items-center justify-center border border-red-500 p-2'>
           <Stage />
         </div>
         <div className='flex-1'>
           <p className='font-heading text-lg font-bold uppercase tracking-ui text-red-500'>{stageType} Stage</p>
-          <h3 className='font-display text-5xl font-black uppercase leading-none tracking-display text-orange-100'>
+          <h3 className='font-display text-3xl font-black uppercase leading-none tracking-display text-orange-100 sm:text-4xl lg:text-5xl'>
             {artist.name}
           </h3>
           <ul className='mt-4 flex flex-wrap gap-2 min-h-4'>

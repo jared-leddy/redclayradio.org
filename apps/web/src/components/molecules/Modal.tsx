@@ -51,7 +51,9 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
         className='w-full max-w-lg border border-red-500 bg-zinc-950 p-6'
       >
         <div className='mb-5 flex items-center justify-between border-b border-red-500 pb-3'>
-          <h2 className='font-display text-4xl font-black uppercase tracking-display text-orange-100'>{title}</h2>
+          <h2 className='font-display text-3xl sm:text-4xl font-black uppercase tracking-display text-orange-100'>
+            {title}
+          </h2>
           <button type='button' aria-label='Close' onClick={onClose} className='cursor-pointer'>
             <CircleXMark />
           </button>
