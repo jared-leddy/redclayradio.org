@@ -42,7 +42,7 @@ export default function StatusTabs({ active, counts, onChange }: StatusTabsProps
             className={`flex items-center gap-2 border px-4 py-2 font-ui font-bold text-sm uppercase tracking-ui transition-colors ${
               isActive
                 ? 'border-red-700 bg-red-700 text-orange-100'
-                : 'border-zinc-700 text-stone-300 hover:border-red-500 hover:text-red-500'
+                : 'bg-zinc-950 border-zinc-700 text-stone-300 hover:border-red-500 hover:text-red-500'
             }`}
           >
             {tab.label}
