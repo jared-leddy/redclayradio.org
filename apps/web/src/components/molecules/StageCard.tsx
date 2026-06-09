@@ -18,11 +18,11 @@ export default function StageCard({ artist, stageType }: StageCardProps) {
           <Stage />
         </div>
         <div className='flex-1'>
-          <p className='font-heading text-lg font-bold uppercase tracking-ui text-red-500'>{stageType}</p>
+          <p className='font-heading text-lg font-bold uppercase tracking-ui text-red-500'>{stageType} Stage</p>
           <h3 className='font-display text-5xl font-black uppercase leading-none tracking-display text-orange-100'>
             {artist.name}
           </h3>
-          <ul className='mt-4 flex flex-wrap gap-2'>
+          <ul className='mt-4 flex flex-wrap gap-2 min-h-4'>
             {(artist.genres ?? []).map((genre) => (
               <li
                 key={genre}

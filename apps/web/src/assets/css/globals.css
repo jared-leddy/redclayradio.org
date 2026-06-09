@@ -18,3 +18,19 @@
     --tracking-mono: 0.12em;
     --tracking-wide-xl: 0.2em;
 }
+
+@layer base {
+    /* Tailwind-style 45° diagonal hairlines behind the entire site. Layered over
+       the body's background color and fixed to the viewport, so it reads as one
+       continuous backdrop; opaque sections (header, cards, banners) sit on top. */
+    body {
+        background-image: repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.05) 0,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px,
+            transparent 11px
+        );
+        background-attachment: fixed;
+    }
+}
