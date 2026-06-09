@@ -44,16 +44,16 @@ export default function Lineup() {
         <title>Red Clay Radio - Artist Lineup</title>
       </Head>
       <PageLayout>
-        <section className='w-8/10 mx-auto my-8'>
-          <h2 className='font-display text-7xl font-black uppercase tracking-display text-orange-100 text-center'>
+        <section className='w-[92%] sm:w-8/10 mx-auto my-8'>
+          <h2 className='font-display text-4xl font-black uppercase tracking-display text-orange-100 text-center sm:text-6xl lg:text-7xl'>
             Artist Lineup
           </h2>
           <hr className='mt-4 border-t border-red-500' />
         </section>
         {isLoading ? (
-          <p className='w-8/10 mx-auto font-ui text-sm text-stone-400'>Loading lineup…</p>
+          <p className='w-[92%] sm:w-8/10 mx-auto font-ui text-sm text-stone-400'>Loading lineup…</p>
         ) : error ? (
-          <p className='w-8/10 mx-auto font-ui text-sm text-red-500'>{error}</p>
+          <p className='w-[92%] sm:w-8/10 mx-auto font-ui text-sm text-red-500'>{error}</p>
         ) : (
           <ArtistTable artists={artists} />
         )}
