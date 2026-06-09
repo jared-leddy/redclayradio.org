@@ -17,7 +17,7 @@ type StageSectionProps = {
  */
 export default function StageSection({ main, side }: StageSectionProps) {
   return (
-    <section className='w-8/10 mx-auto mt-2 grid grid-cols-2 gap-6'>
+    <section className='w-[92%] sm:w-8/10 mx-auto mt-2 grid grid-cols-1 gap-6 md:grid-cols-2'>
       {main && <StageCard artist={main} stageType={StageType.main} />}
       {side && <StageCard artist={side} stageType={StageType.side} />}
     </section>
