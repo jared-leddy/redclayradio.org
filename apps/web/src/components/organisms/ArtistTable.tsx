@@ -38,10 +38,10 @@ export default function ArtistTable({ artists }: ArtistTableProps) {
   );
 
   return (
-    <section className='w-8/10 mx-auto'>
+    <section className='w-[92%] sm:w-8/10 mx-auto'>
       <StatusTabs active={filter} counts={counts} onChange={setFilter} />
-      <div className='mt-4 border border-red-500'>
-        <table className='w-full border-collapse text-left bg-zinc-950'>
+      <div className='mt-4 overflow-x-auto border border-red-500'>
+        <table className='w-full min-w-160 border-collapse text-left bg-zinc-950'>
           <thead>
             <tr className='font-ui text-xs uppercase tracking-ui text-red-500'>
               <th className='w-1/4 px-4 py-3'>Artist</th>
